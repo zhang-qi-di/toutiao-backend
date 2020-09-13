@@ -40,12 +40,19 @@ def register_extensions(app):
     global redis_client
     redis_client = StrictRedis(host=app.config['REDIS_HOST'],port=app.config['REDIS_PORT'],decode_responses=True)
 
+def register_blueprint(app:Flask):
+    '''注册蓝图对象'''
+    from app.resources.user import user_bp
+    app.register_blueprint(user_bp)
+
 def create_app(config_type):
     '''应用初始化'''
     # 创建Flask应用
     app = create_flask_app(config_type)
     # 初始化组件
     register_extensions(app)
+    # 注册蓝图
+    register_blueprint(app)
     return app
 
 
