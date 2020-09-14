@@ -11,8 +11,7 @@ from app.settings.config import config_dict
 from utils.constants import EXTRA_ENV_CONFIG
 from redis import StrictRedis
 
-# 创建数据库组件
-db = SQLAlchemy()
+
 # 创建redis客户端
 redis_client = None     # type:StrictRedis
 
@@ -35,6 +34,7 @@ def create_flask_app(config_type):
 def register_extensions(app):
     '''注册组件'''
     # 初始化数据库组件
+    from models import db
     db.init_app(app)    # 第二种初始化方式
     # 初始化redis
     global redis_client

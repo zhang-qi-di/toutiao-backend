@@ -6,6 +6,8 @@ class DefaultConfig:
     REDIS_HOST = '127.0.0.1'    # redis的ip
     REDIS_PORT = 6381   # redis的端口
 
+    JWT_SECRET = 'rh0LiNdhTIovxRVDiMJWhoaemKpCQOfN28N+TXQR'     # JWT秘钥
+
 
 config_dict = {
     'dev':DefaultConfig
