@@ -51,6 +51,11 @@ def create_app(config_type):
     app = create_flask_app(config_type)
     # 初始化组件
     register_extensions(app)
+
+    # 注册转换器
+    from utils.converters import register_converters
+    register_converters(app)
+
     # 注册蓝图
     register_blueprint(app)
     return app
