@@ -44,6 +44,8 @@ def register_blueprint(app:Flask):
     '''注册蓝图对象'''
     from app.resources.user import user_bp
     app.register_blueprint(user_bp)
+    from app.resources.article import article_bp
+    app.register_blueprint(article_bp)
 
 def create_app(config_type):
     '''应用初始化'''
